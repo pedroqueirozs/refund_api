@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import z from "zod";
 import { prisma } from "@/database/prisma";
 import { AppError } from "@/utils/AppError";
+import z from "zod";
 
 const CategoryEnum = z.enum([
   "food",
@@ -88,15 +88,15 @@ class RefundsController {
   }
   async show(request: Request, response: Response) {
     const paramsSchema = z.object({
-      id: z.string().uuid()
-    })
-    const { id } = paramsSchema.parse(request.params)
+      id: z.string().uuid(),
+    });
+    const { id } = paramsSchema.parse(request.params);
     const refund = await prisma.refunds.findFirst({
       where: { id },
-      include: { user: true }
-    })
+      include: { user: true },
+    });
 
-    response.json(refund)
+    response.json(refund);
   }
 }
 
