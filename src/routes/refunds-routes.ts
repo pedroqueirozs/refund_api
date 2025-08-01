@@ -7,7 +7,7 @@ const refundsController = new RefundsController();
 
 refundsRoutes.post(
   "/",
-  verifyUserAuthorization(["manager"]),
+  verifyUserAuthorization(["employee"]),
   refundsController.create
 );
 
