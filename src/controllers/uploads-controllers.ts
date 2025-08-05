@@ -4,7 +4,6 @@ import { DiskStorage } from "@/providers/disk-storage";
 import { AppError } from "@/utils/AppError";
 import { ZodError } from "zod";
 import z from "zod";
-
 class UploadsController {
   async create(request: Request, response: Response) {
     const diskStorage = new DiskStorage();

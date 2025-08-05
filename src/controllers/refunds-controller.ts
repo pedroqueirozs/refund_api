@@ -65,7 +65,7 @@ class RefundsController {
       include: { user: true },
     });
 
-    //Obter o total de registros para caucular a quanidade de paginas.
+    //Obter o total de registros para calcular a quanidade de paginas.
     const totalRecords = await prisma.refunds.count({
       where: {
         user: {
