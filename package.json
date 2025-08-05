@@ -1,9 +1,11 @@
 {
   "name": "api_refund2.0",
   "version": "1.0.0",
-  "main": "src/sever.ts",
+  "main": "src/server.ts",
   "scripts": {
-    "dev": "tsx watch src/server.ts"
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js"
   },
   "keywords": [],
   "author": "Pedro Queiroz",
