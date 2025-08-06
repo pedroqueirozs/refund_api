@@ -1,7 +1,7 @@
 <h1 align="center">API do Projeto Refund</h1>
 
 <p align="center">
-API para gerenciamento de reembolsos, permitindo cadastro de solicitação com envio de arquivo de comprvante por parte do usuário "employee", listagem e visualização das solicitações por parte do usuario admin "manager".
+API para gerenciamento de reembolsos, permitindo cadastro de solicitação com envio de arquivo de comprovante por parte do usuário "employee", listagem e visualização das solicitações por parte do usuario admin "manager".
 
 <br/>
 <p align="center">
@@ -17,10 +17,6 @@ API para gerenciamento de reembolsos, permitindo cadastro de solicitação com e
 
 <br>
 
-<p align="center">
-  <img alt="invoice control" src="./public/images/layout.svg" width="100%">
-</p>
-
 ## 🚀 Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
@@ -34,7 +30,8 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - Bcrypt
 - Jsonwebtoken
 
-## 🚀 Instalação
+## ✅ Instalação
+
 ```bash
 # Clone o repositório
 https://github.com/pedroqueirozs/refund_api
@@ -51,10 +48,12 @@ npm run dev
 
 ## 📝 Endpoints da API
 
-### Criar um usuário no sistema.
+### 👤 Criar um usuário no sistema.
+
 `POST /users`
 
-#### 📥 Body (JSON):
+#### 1️⃣ Body (JSON):
+
 ```json
 {
   "name": "Teste01",
@@ -62,74 +61,93 @@ npm run dev
   "password": "123456"
 }
 ```
-#### 📥 Response:
+
+#### 2️⃣ Response:
+
 Status: 201 Created
 Body: Nenhum conteúdo (Empty Response)
 
-### Criar uma sessão do usuàrio (Login).
+### ⌛ Criar uma sessão do usuàrio (Login).
+
 `POST /(raiz)`
 
-#### 📥 Body (JSON):
+#### 1️⃣ Body (JSON):
+
 ```json
 {
-	"email": "teste01@gmail.com",
-	"password": "123456"
-}
-```
-#### Response (Susess):
-Status code (201 OK)
-```json
-{
-	"token": "eyJhbGciOiJIUzI1NiIsInR5cCI...",
-	"user": {
-		"id": "e3ffd24f-b33c-47f8-8823-b590e93a5615",
-		"name": "Teste01",
-		"email": "teste01@gmail.com",
-		"role": "employee",
-		"createdAt": "2025-08-05T22:46:28.822Z",
-		"updatedAt": "2025-08-05T22:46:28.822Z"
-	}
-}
-```
-#### Response (Erro - Credenciais inválidas):
-Status code (401 Unauthorized )
-```json
-{
-	"message": "E-mail ou senha inválido"
+  "email": "teste01@gmail.com",
+  "password": "123456"
 }
 ```
 
-### Criar uma solicitação de reembolso
+#### 2️⃣ Response (success):
+
+Status code (201 OK)
+
+```json
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI...",
+  "user": {
+    "id": "e3ffd24f-b33c-47f8-8823-b590e93a5615",
+    "name": "Teste01",
+    "email": "teste01@gmail.com",
+    "role": "employee",
+    "createdAt": "2025-08-05T22:46:28.822Z",
+    "updatedAt": "2025-08-05T22:46:28.822Z"
+  }
+}
+```
+
+#### 3️⃣ Response (Erro - Credenciais inválidas):
+
+Status code (401 Unauthorized )
+
+```json
+{
+  "message": "E-mail ou senha inválido"
+}
+```
+
+### 💰 Criar uma solicitação de reembolso
+
 `POST /refunds)` (role: "employee")
 
-#### Body (JSON):
+#### 1️⃣ Body (JSON):
+
 ```json
 {
-	"name": "Reparo no portão",
-	"category": "services",
-	"amount": 150.25,
-	"filename": "examplecomprovante84568713659.png"
-}
-```
-#### Response (Susses):
-Status code (201 created)
-```json
-{
-	"refund": {
-		"id": "1f9bc33a-2789-4793-88c1-7c7d0c06265d",
-		"name": "Reparo no portão",
-		"amount": 150.25,
-		"category": "services",
-		"filename": "comprovante84568713659.png",
-		"userId": "e3ffd24f-b33c-47f8-8823-b590e93a5615",
-		"createdAt": "2025-08-05T23:45:57.515Z",
-		"updatedAt": "2025-08-05T23:45:57.515Z"
-	}
+  "name": "Reparo no portão",
+  "category": "services",
+  "amount": 150.25,
+  "filename": "examplecomprovante84568713659.png"
 }
 ```
 
-### Listar as solicitações de reembolso
+#### 2️⃣ Response (success):
+
+Status code (201 created)
+
+```json
+{
+  "refund": {
+    "id": "1f9bc33a-2789-4793-88c1-7c7d0c06265d",
+    "name": "Reparo no portão",
+    "amount": 150.25,
+    "category": "services",
+    "filename": "comprovante84568713659.png",
+    "userId": "e3ffd24f-b33c-47f8-8823-b590e93a5615",
+    "createdAt": "2025-08-05T23:45:57.515Z",
+    "updatedAt": "2025-08-05T23:45:57.515Z"
+  }
+}
+```
+
+### 🗒 Listar as solicitações de reembolso
+
 `GET /refunds)` (role: "manager")
+
+#### 1️⃣ Response (success):
+
 ```json
 {
 {
@@ -163,16 +181,14 @@ Status code (201 created)
 }
 }
 ```
-#### Resonse (error):
+
+#### 2️⃣ Resonse (error):
+
 ```json
 {
-	"message": "Unauthorization"
+  "message": "Unauthorization"
 }
 ```
-
-## 🔖 Layout
-
-Você pode visualizar o layout do projeto através [DESSE LINK](. É necessário ter conta no [Figma](https://figma.com) para acessá-lo.
 
 ## :memo: Licença
 
