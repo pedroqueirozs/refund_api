@@ -39,7 +39,7 @@ https://github.com/pedroqueirozs/refund_api
 # Instale as dependências.
 npm install
 
-# Execute as migrations (se estiver usando Prisma)
+# Execute as migrations 
 npx prisma migrate dev
 
 # Rode o projeto
